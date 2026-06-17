@@ -8,18 +8,21 @@ import Novawatch from "../assets/Novawatch.png";
 function Products() {
   const products = [
     {
+      id: 1,
       image: Novathin,
       name: "NOVA thin Pro",
       desc: "Ultra thin laptop with powerful performance.",
       price: "₹1,29,999",
     },
     {
+      id: 2,
       image: Mobile,
       name: "NOVA 17 Pro",
       desc: "Beautiful display with pro camera system.",
       price: "₹89,999",
     },
     {
+      id: 3,
       image: Novawatch,
       name: "NOVA 3 Ultra Watch",
       desc: "Smart health tracking with premium design.",
@@ -35,7 +38,8 @@ function Products() {
       <div className="product-grid">
         {products.map((item) => (
           <ProductCard
-            key={item.name}
+            key={item.id}
+            id={item.id}
             image={item.image}
             name={item.name}
             desc={item.desc}

@@ -1,4 +1,24 @@
-function ProductCard({ image, name, price, desc }) {
+import { supabase } from "../supabase";
+
+function ProductCard({ id, image, name, price, desc }) {
+  async function addToCart() {
+    const { error } = await supabase.from("cart").insert([
+      {
+        product_id: id,
+        name: name,
+        price: price,
+        image: image,
+      },
+    ]);
+
+    if (error) {
+      console.log(error);
+      alert("Product not added");
+    } else {
+      alert("Added to Cart");
+    }
+  }
+
   return (
     <div className="product-card">
       <img src={image} alt={name} />
@@ -7,7 +27,7 @@ function ProductCard({ image, name, price, desc }) {
         <h3>{name}</h3>
         <p>{desc}</p>
         <h4>{price}</h4>
-        <button>Add to Cart</button>
+        <button onClick={addToCart}>Add to Cart</button>
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <nav className="navbar">
@@ -16,10 +18,19 @@ function Navbar() {
       </h1>
 
       <ul>
-        <li>Store</li>
+        <li>
+          <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+            Store
+          </Link>
+        </li>
         <li>Products</li>
         <li>About</li>
         <li>Contact</li>
+        <li>
+          <Link to="/cart" style={{ color: "inherit", textDecoration: "none" }}>
+            Cart
+          </Link>
+        </li>
       </ul>
 
       <button>Buy Now</button>
